@@ -1,10 +1,8 @@
 <%- include("header") -%>
 <body>
   <div class="box" id="heading">
-    <div class="tooltip">
-      <h1><%= listTitle %></h1>
-      <span class="tooltiptext"> <%= listDate %> </span>
-    </div>
+    <div id="tooltip" role="tooltip"><%= listDate %></div>
+    <h1 id="title"><%= listTitle %></h1>
   </div>
 
   <div class="box" id="items">
@@ -25,5 +23,14 @@
       <button type="submit" name="list" value=<%= listTitle %>>+</button>
     </form>
   </div>
+  <script src='https://unpkg.com/@popperjs/core@2'></script>
+  <script>
+    const title = document.querySelector('#title')
+    const tooltip = document.querySelector('#tooltip')
+
+    Popper.createPopper(title, tooltip, {
+      placement: 'top'
+    })
+  </script>
 </body>
 <%- include("footer") -%>

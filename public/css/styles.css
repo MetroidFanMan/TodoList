@@ -5,6 +5,19 @@ html {
   font-family: 'helvetica neue';
 }
 
+#tooltip {
+  background-color: #E4E9FD;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  visibility: hidden;
+}
+
+#heading:hover #tooltip {
+  visibility: visible;
+}
+
 h1 {
   color: #fff;
   padding: 10px;
@@ -21,6 +34,7 @@ h1 {
 #heading {
   background-color: #A683E3;
   text-align: center;
+  position: relative;
 }
 
 .item {
