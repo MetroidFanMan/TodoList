@@ -3,7 +3,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const date = require(__dirname + '/date.js')
+const date = require(__dirname + '/modules/date.js')
+const dbServer = require(__dirname + '/modules/dbServer.js')
 const app = express()
 const _ = require('lodash')
 let day = date.getDate()
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.static('public'))
 
-mongoose.connect('mongodb+srv://admin-ethan:test123@cluster0.vpxdd.mongodb.net/todolistDB?retryWrites=true&w=majority', {
+mongoose.connect(dbServer.serverName, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
